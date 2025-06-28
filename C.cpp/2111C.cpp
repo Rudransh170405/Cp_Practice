@@ -32,6 +32,16 @@ void c_p_c() {
 int32_t  main() { 
     c_p_c();
     w(x){
-        
+        int n ; cin>>n;
+        vi arr(n);
+        for(int i = 0 ; i < n; i++) cin>>arr[i];
+        int i = 0; int j = 0; 
+        int ans = LLONG_MAX;
+        while(i < n){
+            while(j < n && arr[i] == arr[j]) j++;
+            ans = min(ans , i * arr[i] + (n - (j - 1) - 1)*arr[j - 1]);
+            i = j;
+        }
+        cout<<ans<<endl;
     }
 }
